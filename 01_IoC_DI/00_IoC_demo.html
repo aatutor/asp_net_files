@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+     <meta charset="utf-8">
+     <title>DOM Level 2</title>
+</head>
+<body>
+     <h1>DOM Level 2 Event handler</h1>     
+     <p><large><span id="output"></span></large></p>
+
+     <script>
+          var registeredListener = function () {
+               document.getElementById("output").innerHTML = "<large>The registered listener was called.</large>";
+          }          
+          document.addEventListener( "click", registeredListener, true );
+
+          document.getElementById("output").innerHTML = "<large>The event handler has been registered. If you click the page, your web browser will call the event handler.</large>"
+
+     </script>
+</body>
+</html>
