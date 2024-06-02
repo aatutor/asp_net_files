@@ -20,7 +20,13 @@ class ScheduleViewer
 	}
 	public void RenderSchedule()
 	{
-		_scheduleManager.GetSchedule();
+		Shedule temp = _scheduleManager.GetSchedule();
 		// Do Something by render schedule... 
+	}
+}
+
+class ListManager : IScheduleManager {
+	public Shedule GetSchedule() {
+		// Do some specific...
 	}
 }

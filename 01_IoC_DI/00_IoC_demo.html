@@ -10,12 +10,11 @@
 
      <script>
           var registeredListener = function () {
-               document.getElementById("output").innerHTML = "<large>The registered listener was called.</large>";
-          }          
+               document.getElementById("output").innerHTML = "The registered listener was called.";
+          }
           document.addEventListener( "click", registeredListener, true );
 
-          document.getElementById("output").innerHTML = "<large>The event handler has been registered. If you click the page, your web browser will call the event handler.</large>"
-
+          document.getElementById("output").innerHTML = "The event handler has been registered. If you click the page, your web browser will call the event handler."
      </script>
 </body>
 </html>

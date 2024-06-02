@@ -11,7 +11,7 @@ class ScheduleViewer
 	private ScheduleManager _scheduleManager = new ScheduleManager();
 	public void RenderSchedule()
 	{
-		_scheduleManager.GetSchedule();
+		Shedule temp = _scheduleManager.GetSchedule();
 		// Do Something by render schedule... 
 	}
 }
