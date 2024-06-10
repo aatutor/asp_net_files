@@ -13,7 +13,7 @@ namespace asp_ps_1_DI
         public int age { get; private set; }
         // public IFormatOut format { private get; set; }
 
-        public void ShowPerson()
+        public void Print()
         {
             Console.WriteLine(firstName + " " + lastName + " (" + age + ")");
             // format.ShowPerson(this);
@@ -25,10 +25,10 @@ namespace asp_ps_1_DI
         {
             Person user = new Person{ firstName="Ivan", lastName="Popov", age=32 };
             // user.format = new FormatOut();
-            user.ShowPerson();
+            user.Print();
 
             // user.format = new FormatShort(); // change format
-            user.ShowPerson(); 
+            user.Print(); 
 
             //Console.ReadKey();
         }
