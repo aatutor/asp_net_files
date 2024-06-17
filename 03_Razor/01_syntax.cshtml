@@ -1,0 +1,86 @@
+@*https://metanit.com/sharp/razorpages/2.2.php*@
+
+@page
+
+<!-- block -->
+@{
+	string text = "Razor Page";
+	int num = 15;
+}
+
+<!-- use in tag -->
+<h2>@text</h2>
+
+<!-- if -->
+@if (num > 10) {
+	<strong>@num</strong>
+}
+else if (num > 5) {
+	<i>@num</i>
+}
+else {
+	<small>@num</small>
+}
+
+
+<!-- html in cs -->
+@{
+	int x = 8;
+	<p>@x+1</p>
+	@* what is this do? *@
+}
+<p>@(x+10)</p>
+
+
+<!-- loop -->
+@{
+	string[] colors = { "Red", "Green", "Blue" };
+}
+<h2>Colors</h2>
+<ul>
+	@for (int i = 0; i < colors.Length; i++) 
+	{ @* also: foreach, while, do-while *@
+		<li>@colors[i]</li>
+	}
+</ul>
+
+
+<!-- to text -->
+@{
+	@: Just text in code
+	<p>like this, but in innerHTML</p>
+}
+
+
+<!-- functions -->
+@functions {
+	public int Sum(int a, int b) {
+		return a + b;
+	}
+	public int Square(int n) => n * n;
+}
+<p>Sum of 5 and 4: <b> @Sum(5, 4)</b></p>
+<p>Square of 4: <b>@Square(4)</b></p>
+
+
+<!-- local function -->
+@{
+	void RenderName(string name) {
+		<p>Name: <b>@name</b></p>
+	}
+
+	RenderName("Tom");
+	RenderName("Bob");
+} 
+<div>@{ RenderName("Sam"); }</div>
+
+
+<!-- using namespace -->
+@using MyProject
+
+@{
+	// public record class Person(string Name, int Age);
+	Person tom = new Person("Tom", 37);
+}
+
+<h2>@tom</h2>

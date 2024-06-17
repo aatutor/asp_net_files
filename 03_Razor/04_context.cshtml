@@ -1,0 +1,15 @@
+@page
+
+@{
+	var path = Microsoft.AspNetCore.Http.HttpContext.Request.Path;
+	var query = Request.Query;
+	var context = HttpContext;
+}
+
+<h3>Request headers</h3>
+<table>
+	@foreach (var header in Request.Headers)
+	{
+		<tr><td>@header.Key</td><td>@header.Value</td></tr>
+	}
+</table>

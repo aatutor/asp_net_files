@@ -1,0 +1,11 @@
+@page
+ 
+<h2>@Message</h2>
+ 
+@functions {
+	public string Message { get; set; } = "";
+	public void OnGet()
+	{
+		Message = "Razor Pages on METANIT.COM";
+	}
+}

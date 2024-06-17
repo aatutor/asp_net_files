@@ -1,0 +1,27 @@
+@page "{id=-1}"
+
+@model razor_example.Pages.IndexModel
+
+@{
+    int id = -1;
+    try
+    {
+        id = Int32.Parse(RouteData.Values["id"].ToString());
+    }
+    catch (Exception) {}
+}
+
+@if (@id == -1)
+{
+    <h2>Список студентов</h2>
+    <ul>
+        @for(int i=0; i < Model.List.Count; i++) {
+            <li><a href="./@i">@Model.List[i].Name</a></li>
+        }
+    </ul>
+}
+else
+{
+    <h2>Студент:</h2>
+    <p>@Model.User.Name (@Model.User.Age)</p>
+}
