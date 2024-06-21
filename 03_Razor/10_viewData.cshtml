@@ -1,0 +1,17 @@
+@page 
+ 
+@model MyProject.Pages.IndexModel
+ 
+@{
+	VeiwBag.Text = "То же, что ViewData['Text']";
+}
+
+<h2>@ViewData["Message"]</h2>
+<ul>
+	@if(ViewData["People"] is List<string> people) {
+		foreach(var person in people) {
+			<li>@person</li>
+		}
+	}
+</ul>
+<small>@VeiwBag.Text</small>
