@@ -1,0 +1,14 @@
+﻿
+@using MyProject.Models
+@model IEnumerable<Picture>
+
+<h2>Список работ:</h2>
+
+<div style="display:flex">
+	@foreach(var pic in Model) {
+		<div>
+			<img src="/@pic.ImagePath"/ height="200px">
+			<p><i>prompt:</i> @pic.Prompt</p>
+		</div>
+	}
+</div>
