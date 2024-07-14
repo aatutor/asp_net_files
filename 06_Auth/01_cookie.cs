@@ -1,39 +1,37 @@
-#define DEF
-
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace MyProject.Pages
+// 1. добавить Razor
+// 2. выводить @Model.Result
+
+namespace asp_auth.Pages
 {
 	public class IndexModel : PageModel
 	{
-		public string Res { get; set; } = "";
+		public string Result { get; set; } = "";
 		public void OnGet(string? name)
-		{
-#if DEF
-			Res = $"Name: {name}";
-#else
-			var cookie = Request.Cookies;
-			string sID;
-			if (!cookie.ContainsKey("SID"))
-			{
-				sID = (new Random()).Next(10, 99).ToString();
-				Response.Cookies.Append("SID", sID);
-			}
-			else
-			{
-				sID = cookie["SID"];
-			}
+		{ /// localhost:1111/?name=Ivan
+			//Result = $"Имя: {(name != null ? name : "no name")}";
+			//Result = $"Имя: {name}";
 
-			if (name != null)
-			{
-				Response.Cookies.Append("name", name);
+			string storedName;
+
+			var cookie = HttpContext.Request.Cookies;
+			if (name == null) {
+				storedName = cookie["name"] ?? "no name";
 			}
-			else
-			{
-				name = cookie["name"] ?? "no name";
+			else {
+				storedName = name;
+				//cookie["name"] = storedName;
+				HttpContext.Response.Cookies.Append("name", storedName);
 			}
-			Res = $"SID: {sID}; Name: {name}";
+#if ERR
+			if (name != null) {
+				HttpContext.Response.Cookies.Append("name", name);
+			}
+			storedName = HttpContext.Request.Cookies["name"] ?? "no name";
 #endif
+			Result = $"Имя: {storedName}";
 		}
 	}
 }
