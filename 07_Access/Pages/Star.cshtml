@@ -1,0 +1,12 @@
+﻿@page
+@model MyProject.Pages.StarModel
+@using MyProject.Models;
+
+<h1>Староста: (@Model.Star.Name)</h1>
+
+<ol>
+	@foreach(var s in Student.All)
+	{
+		<li>@s.Name</li>
+	}
+</ol>
